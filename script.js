@@ -41,8 +41,6 @@ let computerScore = 0;
 
 //play a round
 function playRound(humanChoice, computerChoice) {
-    humanChoice = getHumanChoice();
-    computerChoice = getComputerChoice();
     if (humanChoice === computerChoice) {
         console.log("It's a tie!");
     } else if (humanChoice === "rock" && computerChoice == "paper") {
@@ -66,4 +64,6 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-playRound();
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+playRound(humanSelection, computerSelection);
