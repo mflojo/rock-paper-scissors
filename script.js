@@ -13,7 +13,12 @@ function getComputerChoice() {
         return "scissors";
     }
 }
-console.log(getComputerChoice());
+
+//check cpu choice and randomness
+console.log("computer choice: " + getComputerChoice());
+for (let i=0; i<20; i++) {
+    console.log(getComputerChoice());
+}
 
 //get user input for choice
 function getHumanChoice() {
@@ -26,6 +31,8 @@ function getHumanChoice() {
         return getHumanChoice();
     }
 }
-console.log(getHumanChoice());      //checking input, comment out later
+
+//check user input
+console.log("human choice: " + getHumanChoice());
 
 //global variables
