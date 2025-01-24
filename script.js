@@ -36,3 +36,7 @@ function getHumanChoice() {
 console.log("human choice: " + getHumanChoice());
 
 //global variables
+let humanScore = 0;
+let computerScore = 0;
+
+//play a round
