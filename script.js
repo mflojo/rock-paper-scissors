@@ -20,9 +20,6 @@ function getHumanChoice() {
     }
 }
 
-let humanScore = 0;
-let computerScore = 0;
-
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         console.log("It's a tie!");
@@ -50,3 +47,10 @@ function playRound(humanChoice, computerChoice) {
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 playRound(humanSelection, computerSelection);
+
+//play game
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+    console.log("Current score: Human " + humanScore + " vs. Computer " + computerScore );
+}
