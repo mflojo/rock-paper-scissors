@@ -1,8 +1,3 @@
-/*  user vs cpu
-    use Math.random() to generate 1-3
-*/
-
-//get computer choice
 function getComputerChoice() {
     let choice = Math.floor(Math.random()*3 + 1);
     if (choice === 1) {
@@ -14,13 +9,6 @@ function getComputerChoice() {
     }
 }
 
-//check cpu choice and randomness
-// console.log("computer choice: " + getComputerChoice());
-// for (let i=0; i<20; i++) {
-//     console.log(getComputerChoice());
-// }
-
-//get user input for choice
 function getHumanChoice() {
     let input =  prompt("Enter rock, paper or scissors below: ");
     input = input.toLowerCase();
@@ -32,18 +20,13 @@ function getHumanChoice() {
     }
 }
 
-//check user input
-// console.log("human choice: " + getHumanChoice());
-
-//global variables
 let humanScore = 0;
 let computerScore = 0;
 
-//play a round
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         console.log("It's a tie!");
-    } else if (humanChoice === "rock" && computerChoice == "paper") {
+    } else if (humanChoice === "rock" && computerChoice === "paper") {
         computerScore++;
         console.log("Paper beats Rock, you lose!");
     } else if (humanChoice === "rock" && computerChoice === "scissors") {
@@ -57,10 +40,10 @@ function playRound(humanChoice, computerChoice) {
         console.log("Scissors beats Paper, you lose!");
     } else if (humanChoice === "scissors" && computerChoice === "rock") {
         computerScore++;
-        console.log("Rock beats Paper, you lose!");
+        console.log("Rock beats Scissors, you lose!");
     } else if (humanChoice === "scissors" && computerChoice === "paper") {
         humanScore++;
-        console.log("Scissors beats paper, you win!");
+        console.log("Scissors beats Paper, you win!");
     }
 }
 
