@@ -47,24 +47,3 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-//play game
-function playGame() {
-
-    for (let i=0; i<5; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        console.log("Current score: Human " + humanScore + " vs. Computer " + computerScore );
-        console.log("~~~~~~~~~~~~~~~~~~~~~~~~");
-    }
-
-    if (humanScore > computerScore) {
-        console.log("Human wins with a score of " + humanScore);
-    } else if (humanScore < computerScore) {
-        console.log("Computer wins with a score of " + computerScore);
-    } else {
-        console.log("Tie game! The score is: human " + humanScore + " vs. computer " + computerScore);
-    }
-}
-
-playGame();
