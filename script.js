@@ -12,40 +12,46 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let input =  prompt("Enter rock, paper or scissors below: ");
-    input = input.toLowerCase();
-    if (input === "rock" || input === "paper" || input === "scissors") {
-        return input;
+function playRound(humanChoice, computerChoice) {
+    let resultMessage = "";
+
+    if (humanChoice === computerChoice) {
+        resultMessage = `Its a tie! You both chose ${humanChoice}.`;
+    } else if (
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")) {
+            humanScore++;
+            resultMessage = `You win! ${humanChoice} beats ${computerChoice}.`;
     } else {
-        alert("Invalid input. Only Enter rock, paper or scissors");
-        return getHumanChoice();
+        computerScore++;
+        resultMessage = `You lose! ${computerChoice} beats ${humanChoice}.`;
+    }
+
+    const results = document.querySelector("#results");
+
+    results.innerHTML = `
+        <p>${resultMessage}</p>
+        <p>Human Score: ${humanScore}.  Computer Score: ${computerScore}.</p>
+    `;
+
+    if (humanScore === 5 || computerScore === 5) {
+        const winner = document.createElement("p");
+        if (humanScore === 5) {
+            winner.textContent = "Congrats, you win the game!";
+        } else {
+            winner.textContent = "The computer wins, try again!";
+        }
+
+        results.appendChild(winner);
+
+        document.querySelector("#rock").disabled = true;
+        document.querySelector("#paper").disabled = true;
+        document.querySelector("#scissors").disabled = true;
     }
 }
 
-function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice) {
-        console.log("It's a tie!");
-    } else if (humanChoice === "rock" && computerChoice === "paper") {
-        computerScore++;
-        console.log("Paper beats Rock, you lose!");
-    } else if (humanChoice === "rock" && computerChoice === "scissors") {
-        humanScore++;
-        console.log("Rock beats Scissors, you win!");
-    } else if (humanChoice === "paper" && computerChoice === "rock") {
-        humanScore++;
-        console.log("Paper beats Rock, you win!");
-    } else if (humanChoice === "paper" && computerChoice === "scissors") {
-        computerScore++;
-        console.log("Scissors beats Paper, you lose!");
-    } else if (humanChoice === "scissors" && computerChoice === "rock") {
-        computerScore++;
-        console.log("Rock beats Scissors, you lose!");
-    } else if (humanChoice === "scissors" && computerChoice === "paper") {
-        humanScore++;
-        console.log("Scissors beats Paper, you win!");
-    }
-}
+
 
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
